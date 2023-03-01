@@ -14,19 +14,22 @@ double Vector3D::getValue() {
 double Vector3D::getAngle1()
 {
     double a = sqrt(getI()* getI() + getJ()* getJ()+z*z);
-    return (acos(getI() / a) * 180) / PI;
+    double co = cos(getI() / a);
+    return acos(co) * 180 / PI;
 }
 
 double Vector3D::getAngle2()
 {
     double a = sqrt(getI() * getI() + getJ() * getJ() + z * z);
-    return (acos(getJ() / a) * 180) / PI;
+    double co = cos(getJ() / a);
+    return acos(co) * 180 / PI;
 }
 
 double Vector3D::getAngle3()
 {
     double a = sqrt(getI() * getI() + getJ() * getJ() + z * z);
-    return (acos(z / a) * 180) / PI;
+    double co = cos(z / a);
+    return acos(co) * 180 / PI;
 }
 
 bool Vector3D::operator==(const Vector3D& comp)
@@ -49,31 +52,44 @@ Vector3D& Vector3D::operator=(const Vector3D& src)
 
 Vector3D Vector3D::operator+(const Vector3D& w)
 {
-    return Vector3D();
+    return Vector3D(getI()+w.getI(),
+                    getJ()+w.getJ(),
+                    getZ()+w.getZ());
 }
 
 Vector3D Vector3D::operator-(const Vector3D& w)
 {
-    return Vector3D();
+    return Vector3D(getI() - w.getI(),
+                     getJ() - w.getJ(),
+                     getZ() - w.getZ());
 }
 
 Vector3D Vector3D::operator*(const Vector3D& w)
 {
-    return Vector3D();
+    return Vector3D(1.0, 1.0, 1.0);
 }
 
 Vector3D Vector3D::operator*(const double w)
 {
-    return Vector3D();
+    return Vector3D(1.0, 1.0, 1.0);
 }
 
-int Vector3D::getI() const {
+double Vector3D::full()
+{
+    double a = sqrt(getI() * getI() + getJ() * getJ() + z * z);
+    double co1 = cos(getI() / a);
+    double co2 = cos(getJ() / a);
+    double co3 = cos(getZ() / a);
+    return co1*co1+co2*co2+co3*co3;
+}
+
+double Vector3D::getI() const {
     return Vector2D::getI();
 }
-int Vector3D::getJ() const {
+double Vector3D::getJ() const {
     return Vector2D::getJ();
 }
 
-int Vector3D::getZ() const {
+double Vector3D::getZ() const {
     return z ;
 }

@@ -100,7 +100,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(227, 311);
+			this->button1->Location = System::Drawing::Point(431, 354);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 0;
@@ -183,11 +183,14 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBox5
 			// 
+			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->textBox5->Location = System::Drawing::Point(137, 234);
 			this->textBox5->Multiline = true;
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->ReadOnly = true;
-			this->textBox5->Size = System::Drawing::Size(176, 60);
+			this->textBox5->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->textBox5->Size = System::Drawing::Size(270, 143);
 			this->textBox5->TabIndex = 4;
 			// 
 			// groupBox1
@@ -199,7 +202,7 @@ namespace CppCLRWinFormsProject {
 			this->groupBox1->Size = System::Drawing::Size(299, 46);
 			this->groupBox1->TabIndex = 5;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"groupBox1";
+			this->groupBox1->Text = L"select";
 			// 
 			// radioButton2
 			// 
@@ -227,7 +230,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// panel1
 			// 
-			this->panel1->BackColor = System::Drawing::Color::Orchid;
+			this->panel1->BackColor = System::Drawing::Color::ForestGreen;
 			this->panel1->Controls->Add(this->textBox6);
 			this->panel1->Controls->Add(this->label6);
 			this->panel1->Controls->Add(this->label7);
@@ -274,7 +277,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(395, 346);
+			this->ClientSize = System::Drawing::Size(535, 389);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->textBox5);
@@ -289,6 +292,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->Name = L"Form1";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Form1";
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
@@ -312,6 +316,7 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
+		this->textBox5->Clear();
 		if (!panel1->Visible) {
 			int d1 = Convert::ToInt32(textBox1->Text);
 			int d2 = Convert::ToInt32(textBox2->Text);
@@ -320,7 +325,7 @@ namespace CppCLRWinFormsProject {
 			Vector2D* s = new Vector2D(d1, d2, d3, d4);
 
 
-			textBox5->Text += String::Format("Length of vector={0:0.00})\r\n", s->getValue());
+			textBox5->Text += String::Format("ƒлина вектора={0:0.00})\r\n", s->getValue());
 			textBox5->Text += String::Format("”гол наклана к оси OX ={0:0.00})\r\n", s->getAngle1());
 			textBox5->Text += String::Format("”гол наклана к оси OY ={0:0.00})\r\n", s->getAngle2());
 
@@ -331,19 +336,25 @@ namespace CppCLRWinFormsProject {
 		else {
 			int d1 = Convert::ToInt32(textBox1->Text);
 			int d2 = Convert::ToInt32(textBox2->Text);
+			int d6 = Convert::ToInt32(textBox6->Text);
+
 			int d3 = Convert::ToInt32(textBox3->Text);
-			int d4 = Convert::ToInt32(textBox4->Text);
-			int d5 = Convert::ToInt32(textBox6->Text);
-			int d6 = Convert::ToInt32(textBox7->Text);
-			Vector3D* s = new Vector3D(d1, d2, d5,d3, d4,d6);
+			int d4 = Convert::ToInt32(textBox4->Text);			
+			int d7 = Convert::ToInt32(textBox7->Text);
+
+			Vector3D* s = new Vector3D(d1, d2, d6,d3, d4,d7);
 
 
 			textBox5->Text += String::Format("Length of vector={0:0.00})\r\n", s->getValue());
 			textBox5->Text += String::Format("”гол наклана к оси OX ={0:0.00})\r\n", s->getAngle1());
-			//textBox5->Text += String::Format("”гол наклана к оси OY ={0:0.00})\r\n", s->getAngle2());
+			textBox5->Text += String::Format("”гол наклана к оси OY ={0:0.00})\r\n", s->getAngle2());
+			textBox5->Text += String::Format("”гол наклана к оси OZ ={0:0.00})\r\n", s->getAngle3());
+			
+			textBox5->Text += String::Format("координата x ={0:0.00})\r\n", s->getI());
+			textBox5->Text += String::Format("координата y ={0:0.00})\r\n", s->getJ());
+			textBox5->Text += String::Format("координата z ={0:0.00})\r\n", s->getZ());
 
-			//std::cout << *s;
-			//textBox5->Text += "operator << test";
+			
 			delete s;
 
 		}
