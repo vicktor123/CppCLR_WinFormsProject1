@@ -206,9 +206,9 @@ namespace CppCLRWinFormsProject {
 			this->radioButton2->AutoSize = true;
 			this->radioButton2->Location = System::Drawing::Point(144, 19);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(85, 17);
+			this->radioButton2->Size = System::Drawing::Size(70, 17);
 			this->radioButton2->TabIndex = 0;
-			this->radioButton2->Text = L"radioButton1";
+			this->radioButton2->Text = L"3d vector";
 			this->radioButton2->UseVisualStyleBackColor = true;
 			this->radioButton2->CheckedChanged += gcnew System::EventHandler(this, &Form1::radioButton2_CheckedChanged);
 			// 
@@ -218,10 +218,10 @@ namespace CppCLRWinFormsProject {
 			this->radioButton1->Checked = true;
 			this->radioButton1->Location = System::Drawing::Point(26, 19);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(85, 17);
+			this->radioButton1->Size = System::Drawing::Size(70, 17);
 			this->radioButton1->TabIndex = 0;
 			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"radioButton1";
+			this->radioButton1->Text = L"2d vector";
 			this->radioButton1->UseVisualStyleBackColor = true;
 			this->radioButton1->CheckedChanged += gcnew System::EventHandler(this, &Form1::radioButton1_CheckedChanged);
 			// 

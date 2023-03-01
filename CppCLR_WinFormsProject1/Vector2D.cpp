@@ -49,7 +49,15 @@ Vector2D& Vector2D::operator=(const Vector2D& src)
     // Return for chaining
     return *this;
 }
-double Vector2D::getAngle1() 
+void Vector2D::setI(double s)
+{
+    i = s;
+}
+void Vector2D::setJ(double s)
+{
+    j = s;
+}
+double Vector2D::getAngle1()
 {
     double a = sqrt(i*i+j*j);
     return (acos(i / a)*180)/PI;

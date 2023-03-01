@@ -13,6 +13,9 @@ private:
 protected:
     int getI() const { return i; }
     int getJ() const { return j; }
+    void setI(double s);
+    void setJ(double s);
+    
 public:
     Vector2D(double dx, double dy)
     {
